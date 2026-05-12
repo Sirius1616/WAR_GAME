@@ -1,0 +1,92 @@
+SSH login ----  ssh bandit5@bandit.labs.overthewire.org -p 2220
+
+level 0 -  ssh 
+ 		-- ssh username@ip -p port
+
+level 1 - ls, cd, cat, file, du, find
+
+	password for 0 - 1 -----  ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
+
+level 1 - 2 
+	password  -----  263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+
+	was found in the file labelled as - and was entered by ./- 
+
+level 2 - 3
+	password  ----  MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+
+level 3 - 4
+	password  ----  2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+	
+	So in order to hide a file you have to add a/some dot(s) at the beginning of the name of the file, that will essentially make the file hiden except opened with  find directory/ to see the content of the hidden files in the directory
+	
+level 4 - 5 
+	password  ----  4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+
+        We needed to find the only human readable file that contains the password
+
+level 5 - 6
+	password  -----  HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
+
+
+	du -ab * | grep "^1033"
+
+	We need to find the directory recursively the reason for the -a flag
+
+	b flag is meant for the size we want to find i.e in byte
+
+level 6 - 7
+	password  ----  morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+
+	find / -type f -user bandit7 -group bandit6 -size 33c 2>/dev/null
+
+	find  -  gets all the hidden files 
+	f - type = file
+	33 = file size in byte
+	2>/dev/null  --  This will hide all the permission error so only file without permission error will be displayed
+
+level 7 - 8
+	password  dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+
+	found by looking for a line of strings that has the character millionth just before the password
+
+	strings data.txt | grep millionth
+
+	strings is meant to find human readble texts in a file
+
+level 8 - 9
+	password  ----  4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+
+	trying to get the only line that appear only once in the file, we have to sort the line first so that simmilar line can appear side by side and the pipe it to uniq
+	sort data.txt | uniq -u
+
+level 9 - 10
+	password ----  FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+
+	We need to get the human readable strings with the several '=' characters. The following commands were used
+
+	strings data.txt | grep "="
+
+
+
+Level 10 -  11 
+	password  ----  dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+
+	base64 -d data.txt was meant to decode an encrypted file
+
+
+Level 11 - 12
+	Password  --- 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
+	tr a command that rotates alphabets by some position
+	echo data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+
+
+level 12 - 13
+	password  ---  FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
+			gotten through decompressing several files and extracting till I eventually got an ASCII text, however the original I started working with was in ASCII but it was a hex dump I had to bring it from hex dump with
+
+	xxd -r data.txt > res.bin
+
+	checked file type to know how to decompress wether gzip, bzip, tar etc
+
+
