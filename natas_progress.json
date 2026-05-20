@@ -1,0 +1,22 @@
+{
+    "0": {
+        "password": "0nzCigAq7t2iALyvU9xcHlYN4MlkIwlq",
+        "lesson": "curl is meant to load a url on the command line \n while -v when added shows more detailed information like Header, redirect TSL/SSL handshake",
+        "commands": "curl -v -u natas0 url"
+    },
+    "natas1": {
+        "password": "TguMNxKo1DSa1tujBLuZJnDUlCcUAPlI",
+        "lesson": "I never added http:// to make it work, however I am yet to find out the reason it wasn't working before with http",
+        "commands": "curl -v -u username:password url(without http)"
+    },
+    "natas2": {
+        "password": "3gqisGdR0pjm6tpkDKdIWO2hSvchLeYH",
+        "lesson": "Sometimes look at the output of curl the clue could be in somefiles hidden there",
+        "commands": "curl -u natas2:TguMNxKo1DSa1tujBLuZJnDUlCcUAPlI http://natas2.natas.labs.overthewire.org/files/users.txt"
+    },
+    "natas3": {
+        "password": "QryZXc2e0zahULdHrtHxzyYkj59kUxLQ",
+        "lesson": "To access hidden file add robots.txt at the end of the url",
+        "commands": ""
+    }
+}
