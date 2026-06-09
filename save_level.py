@@ -19,7 +19,6 @@ def save_natas():
     else:
         PATH = Path.touch(file_name)
         dict = {}
-        print('not')
 
     dict[level] = {"password": password,
                    "lesson": Lesson,

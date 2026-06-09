@@ -16,7 +16,7 @@
     },
     "natas3": {
         "password": "QryZXc2e0zahULdHrtHxzyYkj59kUxLQ",
-        "lesson": "To access hidden file add robots.txt at the end of the url",
-        "commands": ""
+        "lesson": "The password or some other special files could be hidden in a location that is not available on the web, the file robots.txt holds those files. sometimes in the process of trying to get that file you could hit another pointer which shows what is available on the web and that is where other files could be located",
+        "commands": "[curl -u natas3:3gqisGdR0pjm6tpkDKdIWO2hSvchLeYH http://natas3.natas.labs.overthewire.org/robots.txt, curl -u natas3:3gqisGdR0pjm6tpkDKdIWO2hSvchLeYH http://natas3.natas.labs.overthewire.org/s3cr3t/, curl -u natas3:3gqisGdR0pjm6tpkDKdIWO2hSvchLeYH http://natas3.natas.labs.overthewire.org/s3cr3t/users.txt]"
     }
 }
