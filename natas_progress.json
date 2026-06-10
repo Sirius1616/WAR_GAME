@@ -1,22 +1,32 @@
 {
     "0": {
-        "password": "0nzCigAq7t2iALyvU9xcHlYN4MlkIwlq",
+        "password_to_next_level": "0nzCigAq7t2iALyvU9xcHlYN4MlkIwlq",
         "lesson": "curl is meant to load a url on the command line \n while -v when added shows more detailed information like Header, redirect TSL/SSL handshake",
         "commands": "curl -v -u natas0 url"
     },
     "natas1": {
-        "password": "TguMNxKo1DSa1tujBLuZJnDUlCcUAPlI",
+        "password_to_next_level": "TguMNxKo1DSa1tujBLuZJnDUlCcUAPlI",
         "lesson": "I never added http:// to make it work, however I am yet to find out the reason it wasn't working before with http",
         "commands": "curl -v -u username:password url(without http)"
     },
     "natas2": {
-        "password": "3gqisGdR0pjm6tpkDKdIWO2hSvchLeYH",
+        "password_to_next_level": "3gqisGdR0pjm6tpkDKdIWO2hSvchLeYH",
         "lesson": "Sometimes look at the output of curl the clue could be in somefiles hidden there",
         "commands": "curl -u natas2:TguMNxKo1DSa1tujBLuZJnDUlCcUAPlI http://natas2.natas.labs.overthewire.org/files/users.txt"
     },
     "natas3": {
-        "password": "QryZXc2e0zahULdHrtHxzyYkj59kUxLQ",
+        "password_to_next_level": "QryZXc2e0zahULdHrtHxzyYkj59kUxLQ",
         "lesson": "The password or some other special files could be hidden in a location that is not available on the web, the file robots.txt holds those files. sometimes in the process of trying to get that file you could hit another pointer which shows what is available on the web and that is where other files could be located",
         "commands": "[curl -u natas3:3gqisGdR0pjm6tpkDKdIWO2hSvchLeYH http://natas3.natas.labs.overthewire.org/robots.txt, curl -u natas3:3gqisGdR0pjm6tpkDKdIWO2hSvchLeYH http://natas3.natas.labs.overthewire.org/s3cr3t/, curl -u natas3:3gqisGdR0pjm6tpkDKdIWO2hSvchLeYH http://natas3.natas.labs.overthewire.org/s3cr3t/users.txt]"
+    },
+    "natas4": {
+        "password_to_next_level": "0n35PkggAPm2zbEpOU802c0x0Msn1ToK",
+        "lesson": "Sometimes you might need to add some header parameter like this one required Referer i.e.  where you are coming from, despite the authentication is correct they still want to know where we came from",
+        "commands": "curl -v -u natas4:QryZXc2e0zahULdHrtHxzyYkj59kUxLQ -H \"Referer: http://natas5.natas.labs.overthewire.org/\" http://natas4.natas.labs.overthewire.org"
+    },
+    "natas5": {
+        "password_to_next_level": "0RoJwHdSKWFTYR5WuiAewauSuNaBXned",
+        "lesson": "Cookies that are not cryptographically signed can be manipulated say for instance the loggedin parameter can be changed to 1 to show that you were loggedin before",
+        "commands": "curl --cookie loggedin=1 -u natas5:0n35PkggAPm2zbEpOU802c0x0Msn1ToK http://natas5.natas.labs.overthewire.org"
     }
 }

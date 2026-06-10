@@ -20,7 +20,7 @@ def save_natas():
         PATH = Path.touch(file_name)
         dict = {}
 
-    dict[level] = {"password": password,
+    dict[level] = {"password_to_next_level": password,
                    "lesson": Lesson,
                    "commands": commands
         } 
