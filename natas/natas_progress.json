@@ -28,5 +28,10 @@
         "password_to_next_level": "0RoJwHdSKWFTYR5WuiAewauSuNaBXned",
         "lesson": "Cookies that are not cryptographically signed can be manipulated say for instance the loggedin parameter can be changed to 1 to show that you were loggedin before",
         "commands": "curl --cookie loggedin=1 -u natas5:0n35PkggAPm2zbEpOU802c0x0Msn1ToK http://natas5.natas.labs.overthewire.org"
+    },
+    "natas6": {
+        "password_to_next_level": "bmg8SvU1LizuWjx3y7xkNERkHxGre0GS",
+        "lesson": "SOmetimes there are some files that are only meant to be used by internal server and is called /includes located at the root of the url, take for instance we can have ww.google.com/includes/secret.inc  But before I was able to get that I had to fine out from the source code what the include file would contain. The grep command had to be my friend here. url/source-code.html/ | grep includes",
+        "commands": "curl -v -u natas6:0RoJwHdSKWFTYR5WuiAewauSuNaBXned http://natas6.natas.labs.overthewire.org/index-source.html | grep includes   curl -v -u natas6:0RoJwHdSKWFTYR5WuiAewauSuNaBXned http://natas6.natas.labs.overthewire.org/includes/secrets.inc.  Inside there I found the password that helped me login."
     }
 }
