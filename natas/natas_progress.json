@@ -31,7 +31,27 @@
     },
     "natas6": {
         "password_to_next_level": "bmg8SvU1LizuWjx3y7xkNERkHxGre0GS",
-        "lesson": "SOmetimes there are some files that are only meant to be used by internal server and is called /includes located at the root of the url, take for instance we can have ww.google.com/includes/secret.inc  But before I was able to get that I had to fine out from the source code what the include file would contain. The grep command had to be my friend here. url/source-code.html/ | grep includes",
+        "lesson": "Sometimes there are some files that are only meant to be used by internal server and is called /includes located at the root of the url, take for instance we can have ww.google.com/includes/secret.inc  But before I was able to get that I had to fine out from the source code what the include file would contain. The grep command had to be my friend here. url/source-code.html/ | grep includes",
         "commands": "curl -v -u natas6:0RoJwHdSKWFTYR5WuiAewauSuNaBXned http://natas6.natas.labs.overthewire.org/index-source.html | grep includes   curl -v -u natas6:0RoJwHdSKWFTYR5WuiAewauSuNaBXned http://natas6.natas.labs.overthewire.org/includes/secrets.inc.  Inside there I found the password that helped me login."
+    },
+    "natas7": {
+        "password_to_next_level": "xcoXLmzMkoIP9D7hlgPlh9XD7OgLAe5Q",
+        "lesson": "Path traversal: is a common web vulnerability where the developer fails to give restriction to general access to some files that are meant for only admin, some files that may contains some user info like password, secrets. This is done by using ../../../etc/secret.txt or some other path name added to the ../../../ . With this the attacker can easily travers through the paths directly to where the unauthorized location. They can even do somethings that more advance like  ....//....//....// or even encode those . and / with the html encoding so that if the developer placed rules that rejects those paths as input.",
+        "commands": "curl -v -u natas7:bmg8SvU1LizuWjx3y7xkNERkHxGre0GS http://natas7.natas.labs.overthewire.org/index.php?page=/../../../etc/natas_webpass/natas8"
+    },
+    "natas8": {
+        "password_to_next_level": "ZE1ck82lmdGIoErlhQgWND6j2Wzz6b6t",
+        "lesson": "secrets could be encoded and encoding is not the same as encryption, if encoded it could also be decoded ",
+        "commands": "curl -v -u natas8:xcoXLmzMkoIP9D7hlgPlh9XD7OgLAe5Q http://natas8.natas.labs.overthewire.org/index-source.html | grep encode"
+    },
+    "natas9": {
+        "password_to_next_level": "t7I5VHvpa14sJTUGV0cbEsbYfFP2dmOu",
+        "lesson": "The concept was on command injection and from knowledge gathered if the internal or source code gives allowance for shell scripts, then the attacker can input scripts that can change some internal codes or even fetch some files.",
+        "commands": "curl -v -u natas9:ZE1ck82lmdGIoErlhQgWND6j2Wzz6b6t http://natas9.natas.labs.overthewire.org/index-source.html"
+    },
+    "natas10": {
+        "password_to_next_level": "UJdqkK1pTu6VLt9UHWAgRZz6sVUZ3lEk",
+        "lesson": "Even if some commands have been blacklisted there are still other commands that will solve the challenge by bypassing those whitelisted commands",
+        "commands": ".* /etc/natas_webpass/natas11"
     }
 }
